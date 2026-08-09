@@ -1,0 +1,24 @@
+{
+  "name": "@agentsre/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "test": "vitest run",
+    "verify": "wrangler deploy --dry-run"
+  },
+  "dependencies": {
+    "@agentsre/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.20.3",
+    "@cloudflare/workers-types": "^5.20260809.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.0.0"
+  }
+}

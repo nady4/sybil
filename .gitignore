@@ -1,0 +1,14 @@
+node_modules/
+.wrangler/
+dist/
+.next/
+coverage/
+.dev.vars
+.env
+.env.local
+.env.*.local
+!.env.example
+.agentsre/
+*.tgz
+.DS_Store
+deploy.env

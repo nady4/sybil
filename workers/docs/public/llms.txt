@@ -1,0 +1,23 @@
+# AgentsRE
+
+SRE-grade monitoring for AI agents: synthetic canary checks + production
+telemetry fused into one alert stream, with baseline regression alerting
+(latency, cost, eval score, refusal rate, error rate).
+
+## Docs
+
+- [Synthetic checks](docs/checks.md): the agent runtime, assertions, scheduling
+- [Production ingest](docs/ingest.md): envelope, OTLP, Langfuse-compat
+- [Alerting](docs/alerting.md): baselines, regression policy, channels
+- [Operations](docs/ops.md): platform self-monitoring, admin API, cost by feature
+- [SDK and API](docs/api.md): REST surface, checks-as-code, Agent Skills
+- [Billing](docs/billing.md): plans, metered usage
+- [Helicone migration](docs/migrate-helicone.md): one-shot import
+
+## Quick facts
+
+- Product: agentsre — Agent SRE
+- API base: https://api.agentsre.dev (auth: `Authorization: Bearer <api-key>`)
+- All bodies JSON. Errors: `{"error": "..."}`
+- A "feature" is any user-facing agent capability you monitor (e.g. checkout, support)
+- Every Run (synthetic or production) carries cost fields from day one

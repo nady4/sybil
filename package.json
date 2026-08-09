@@ -1,0 +1,15 @@
+{
+  "name": "agentsre",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "dev:web": "pnpm --filter @agentsre/web dev",
+    "deploy": "pnpm -r --if-present deploy",
+    "verify": "pnpm -r --if-present verify"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "agentsre-ingest",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agentsre",
+      "migrations_dir": "../scheduler/migrations"
+      }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "DAILY_CAPS"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ORG_RATE_LIMITER",
+        "class_name": "OrgRateLimiter"
+      }
+    ]
+  },
+  "queues": {
+    "producers": [
+      {
+        "binding": "INGEST_QUEUE",
+        "queue": "agentsre-ingest"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "agentsre-ingest",
+        "max_batch_size": 50,
+        "max_batch_timeout": 30,
+        "max_retries": 4,
+        "dead_letter_queue": "agentsre-ingest-dlq"
+      },
+      {
+        "queue": "agentsre-ingest-dlq",
+        "max_batch_size": 50,
+        "max_batch_timeout": 30
+      }
+    ]
+  },
+  "services": [
+    {
+      "binding": "SCHEDULER_SERVICE",
+      "service": "agentsre-scheduler"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@agentsre/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@agentsre/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.10",
+    "langfuse": "^3.29.1"
+  },
+  "description": "TypeScript SDK for AgentsRE — checks-as-code, runs, alerts, correlation, Helicone imports.",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "src"
+  ]
+}

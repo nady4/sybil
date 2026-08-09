@@ -1,0 +1,32 @@
+{
+  "name": "agentsre",
+  "version": "0.1.0",
+  "description": "Agent SRE CLI — synthetic checks + production telemetry for AI agents. Create checks, correlate failures, import Helicone exports, self-configure Claude Code / Cursor.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "agentsre": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/index.mjs --log-level=warning",
+    "prepublishOnly": "pnpm build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@agentsre/sdk": "workspace:*",
+    "@agentsre/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.10"
+  }
+}

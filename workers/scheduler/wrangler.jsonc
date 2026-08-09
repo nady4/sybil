@@ -1,0 +1,82 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "agentsre-scheduler",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "triggers": {
+    "crons": ["* * * * *", "*/15 * * * *", "0 3 * * *", "0 4 * * *", "*/5 * * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agentsre",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "JUDGE_CACHE"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RUNS_BUCKET",
+      "bucket_name": "agentsre-runs"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "FEATURE_COORDINATOR",
+        "class_name": "FeatureCoordinator"
+      },
+      {
+        "name": "ORG_RATE_LIMITER",
+        "class_name": "OrgRateLimiter"
+      }
+    ]
+  },
+  "queues": {
+    "producers": [
+      {
+        "binding": "ALERTS_QUEUE",
+        "queue": "agentsre-alerts"
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "binding": "SCHEDULER",
+      "name": "scheduler",
+      "class_name": "SchedulerWorkflow"
+    },
+    {
+      "binding": "SAMPLER",
+      "name": "sampler",
+      "class_name": "SamplerWorkflow"
+    },
+    {
+      "binding": "USAGE_REPORTER",
+      "name": "usage-reporter",
+      "class_name": "UsageReporterWorkflow"
+    },
+    {
+      "binding": "RETENTION_WORKFLOW",
+      "name": "retention",
+      "class_name": "RetentionWorkflow"
+    },
+    {
+      "binding": "MONITOR_WORKFLOW",
+      "name": "monitor",
+      "class_name": "MonitorWorkflow"
+    }
+  ],
+  "vars": {
+    "JUDGE_MODEL": "gpt-4o-mini"
+  }
+}

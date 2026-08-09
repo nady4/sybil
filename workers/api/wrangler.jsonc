@@ -1,0 +1,29 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "agentsre-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agentsre",
+      "migrations_dir": "../scheduler/migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "JWKS_CACHE"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RUNS_BUCKET",
+      "bucket_name": "agentsre-runs"
+    }
+  ]
+}
