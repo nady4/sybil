@@ -7,6 +7,11 @@ packages:
 minimumReleaseAgeExclude:
   - '@cloudflare/workers-types@5.20260809.1'
 
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+
 onlyBuiltDependencies:
   - esbuild
   - sharp
