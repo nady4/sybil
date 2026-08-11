@@ -1,7 +1,10 @@
 <h1 align="center">Sybil</h1>
 
 <p align="center">
-👁️ AI agent monitoring: synthetic + production checks with scheduled canary runs, tool-call tracing, and regression alerting. Built on Cloudflare Workers, Workflows, Durable Objects, D1, R2, and KV, with Next.js, Clerk, and Stripe.
+👁️ AI observability platform that continuously tests your agents in production, catching failures before your users do.
+</p>
+<p align="center">
+Built on Cloudflare Workers, Workflows, Durable Objects, D1, R2, and KV, with Next.js, Clerk, and Stripe.
 </p>
 
 <br>
