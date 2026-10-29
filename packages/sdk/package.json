@@ -14,9 +14,9 @@
     "@agentsre/shared": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
-    "vitest": "^4.1.10",
-    "langfuse": "^3.29.1"
+    "langfuse": "^3.39.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
   },
   "description": "TypeScript SDK for AgentsRE — checks-as-code, runs, alerts, correlation, Helicone imports.",
   "license": "MIT",

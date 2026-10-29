@@ -45,7 +45,7 @@ export const ingestEnvelopeSchema = z.object({
       input: z.unknown().optional(),
       /** Response text (judge input for sampled production scoring). */
       output: z.unknown().optional(),
-      metadata: z.record(z.unknown()).optional(),
+      metadata: z.record(z.string(), z.unknown()).optional(),
       startTime: z.string().optional(),
       endTime: z.string().optional(),
     }),
